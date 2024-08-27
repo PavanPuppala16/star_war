@@ -1,0 +1,54 @@
+<div class="container-fluid p-0 m-0">
+  <div class="header">
+    <h1>STAR WARS</h1>
+    <span class="pt-3">THE SWAPI PROJECT</span>
+  </div>
+  <div class="container mt-3" *ngIf="character">
+    <div class="row">
+      <div class="col-md-3">
+        <div class=" side-bar p-3 bg-white ">
+          <h1>{{ character.name }}</h1>
+          <p><strong>Height:</strong> {{ character.height }}</p>
+          <p><strong>Mass:</strong> {{ character.mass }}</p>
+          <p><strong>Skin Color:</strong> {{ character.skin_color }}</p>
+          <p><strong>Eye Color:</strong> {{ character.eye_color }}</p>
+          <p><strong>Birth Year:</strong> {{ character.birth_year }}</p>
+          <p><strong>Gender:</strong> {{ character.gender }}</p>
+          <p><strong>created:</strong> {{ character.created | date:'dd/MM/yyyy'  }}</p>
+          <p><strong>edited:</strong> {{ character.edited | date:'dd/MM/yyyy'  }}</p>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="bg-white p-3">
+          <p class="names"><strong>Species:</strong></p>
+          <ul class="list-unstyled bg-light p-2 rounded">
+            <li *ngFor="let specie of species; let last = last">
+              {{ specie }}<span *ngIf="!last">, </span>
+            </li>
+            <li *ngIf="species.length==0">
+              No species 
+            </li>
+          </ul>
+          <p class="names"><strong>Movies:</strong></p>
+          <ul class="list-unstyled bg-light p-2 rounded">
+            <li *ngFor="let film of movies; let last = last">
+              {{ film}}<span *ngIf="!last">, </span>
+            </li>
+            <li *ngIf="movies.length==0">
+              No movies 
+            </li>
+          </ul>
+          <p class="names"><strong>Spaceships:</strong></p>
+          <ul class="list-unstyled bg-light p-2 rounded">
+            <li *ngFor="let vehicle of starships; let last = last">
+              {{ vehicle }}<span *ngIf="!last">, </span>
+            </li>
+            <li *ngIf="starships.length==0">
+              No Spaceships 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

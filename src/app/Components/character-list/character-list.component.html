@@ -1,0 +1,129 @@
+<div class="container-fluid m-0 p-0">
+  <div class="header">
+    <h1>STAR WARS</h1>
+    <span class="pt-3">THE SWAPI PROJECT</span>
+  </div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="left-bar bg-white p-3 d-flex flex-column gap-3 text-center">
+          <span>Filter</span>
+          <select
+            id="movie"
+            [(ngModel)]="selectedMovie"
+            (change)="filterMovie()"
+          >
+            <option value="">All Movies</option>
+            <option *ngFor="let movie of movies" [value]="movie.url">
+              {{ movie.title }}
+            </option>
+          </select>
+          <select
+            id="starship"
+            [(ngModel)]="selectedstarship"
+            (change)="filterstarship()"
+          >
+            <option value="">All starships</option>
+            <option *ngFor="let starship of starships" [value]="starship.name">
+              {{ starship.name }}
+            </option>
+
+          </select>
+          <select
+            id="vehicles"
+            [(ngModel)]="selectedvehicles"
+            (change)="filtervehicles()"
+          >
+            <option value="">All vehicles</option>
+            <option *ngFor="let vehicle of vehicles" [value]="vehicle.url">
+              {{ vehicle.name }}
+            </option>
+          </select>
+          <select
+            id="species"
+            [(ngModel)]="selectedspecies"
+            (change)="filterspecies()"
+          >
+            <option value="">All species</option>
+            <option *ngFor="let specie of species" [value]="specie.url">
+              {{ specie.name }}
+            </option>
+          </select>
+          <select
+          id="birthyear"
+          [(ngModel)]="birthyear"
+          (change)="filterBirth()"
+        >
+          <option  disabled>Birth Year</option>
+          <option *ngFor="let birth of filteredCharacters" >
+            <!-- <input  type="checkbox" value="birth" [(ngModel)]="birthyear1" /> -->
+            {{ birth.birth_year }}
+          </option>
+        </select>
+          <button (click)="filterCharacters()" type="button">Search</button>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="d-flex flex-column p-3 bg-white">
+          <h2>SEARCH RESULTS</h2>
+          <p>(By Default this table will have all data)</p>
+        </div>
+        <div class="px-3 bg-white pb-3">
+          <table>
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Character</th>
+                <th>Species</th>
+                <th>Birth Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let character of filteredCharacters; let i = index">
+                <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+                <td>
+                  <a class="navgitation"
+                    [routerLink]="['/characters', character.url.split('/')[5]]"
+                  >
+                    {{ character.name }}
+                  </a>
+                </td>
+                <td *ngIf="character.speciesName!=''">
+                  {{ character.speciesName }}
+                </td>
+                <td *ngIf="character.speciesName==''">No Species</td>
+                <!-- <td>
+                 
+                  <ng-container
+                    *ngIf="character.species.length > 0; else noSpecies"
+                  >
+                    <span
+                      *ngFor="let specie of character.species; let last = last"
+                    >
+                      {{ specie }}<span *ngIf="!last">, </span>
+                    </span>
+                  </ng-container>
+                  <ng-template #noSpecies> No Species </ng-template>
+                </td> -->
+                <td>{{ character.birth_year }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="hstack justify-content-end gap-2 me-1">
+            <a class="pagination-btn1" (click)="previousPage()" [class.disabled]="currentPage === 1">Previous</a>
+            <ng-container *ngFor="let page of pageNumbers">
+              <a 
+                class="pagination-btn" 
+                (click)="goToPage(page)" 
+                [class.active]="page === currentPage">
+                {{ page }}
+              </a>
+            </ng-container>
+            <a class="pagination-btn1" (click)="nextPage()" [class.disabled]="currentPage === totalPages">Next</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

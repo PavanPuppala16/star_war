@@ -1,0 +1,18 @@
+<div>
+    <label for="movie">Movie:</label>
+    <select id="movie"  (change)="onFilterChange()">
+      <option value="">-- Select Movie --</option>
+      <option *ngFor="let movie of movies" [value]="movie">{{ movie }}</option>
+    </select>
+  
+    <label for="species">Species:</label>
+    <select id="species"  (change)="onFilterChange()">
+      <option value="">-- Select Species --</option>
+      <option *ngFor="let sp of species" [value]="sp">{{ sp }}</option>
+    </select>
+  
+    <label for="minBirthYear">Birth Year Range:</label>
+    <input type="number" id="minBirthYear"  (input)="onFilterChange()" placeholder="Min Year">
+    <input type="number" id="maxBirthYear"  (input)="onFilterChange()" placeholder="Max Year">
+  </div>
+  

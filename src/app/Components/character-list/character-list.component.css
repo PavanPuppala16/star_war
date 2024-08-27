@@ -1,0 +1,96 @@
+.left-bar > span {
+  font-size: 16px;
+  color: #059005;
+  font-weight: 700;
+}
+.left-bar > select {
+  width: 100%;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #059005;
+}
+.left-bar > select:focus {
+  outline: none;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #059005;
+}
+p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #919191;
+  margin: 0;
+}
+button {
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #059005;
+  border: 1px solid #059005;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 6px;
+  width: 100%;
+}
+table > thead > tr > th {
+  padding: 15px 20px;
+  background: #f9f9f9;
+  font-size: 18px;
+  font-weight: 700;
+  color: #7d7d7d;
+}
+table > tbody > tr > td,
+a {
+  padding: 10px 15px;
+  background: #f2f2f2;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9b9b9b;
+  text-decoration: none;
+}
+.pagination-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #a5a5a5;
+}
+.pagination-btn1 {
+  width: auto;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #a5a5a5;
+}
+
+.pagination-btn.active {
+  background: #059005;
+}
+
+.navgitation {
+  text-decoration: underline;
+  color: #059005;
+}
+#birthyear {
+  background: #059005 !important;
+  color: #fff !important;
+}
+#birthyear> option{
+    background: #fff;
+    color: #059005;
+}

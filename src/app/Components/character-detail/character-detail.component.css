@@ -1,0 +1,12 @@
+.side-bar > h1,p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #696969; 
+    margin-bottom: 6px;
+    line-height: 30px;
+}
+.names{
+    font-size: 20px;
+    font-weight: 500;
+    color: #059005; 
+}
